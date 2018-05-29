@@ -1,0 +1,12 @@
+<platform xmlns="http://ns.adobe.com/air/extension/24.0">
+    <description></description> 
+    <!--<packagedDependencies>-->
+        <!--<packagedDependency></packagedDependency>-->
+    <!--</packagedDependencies>-->
+    <!--<packagedResources>-->
+        <!--<packagedResource>-->
+            <!--<packageName></packageName>-->
+            <!--<folderName></folderName>-->
+        <!--</packagedResource>-->
+    <!--</packagedResources>-->
+</platform>

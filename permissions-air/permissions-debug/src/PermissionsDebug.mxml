@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<f:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
+               xmlns:f="library://ns.feathersui.com/mxml"
+               theme="feathers.themes.MetalWorksMobileTheme" showStats="true">
+
+
+    <fx:Script>
+        <![CDATA[
+        import com.github.airext.Permissions;
+        import com.github.airext.permissions.AuthorisationStatus;
+        import com.github.airext.permissions.Permission;
+
+        private function log(...args): void {
+            outputText.text += args + "\n";
+            outputText.verticalScrollPosition = outputText.maxVerticalScrollPosition;
+            trace(args);
+        }
+
+        private function isSupportedTapped(): void {
+            log("isSupported:" + Permissions.isSupported);
+        }
+
+        private function extensionVersion(): void {
+            log("extensionVersion:" + Permissions.extensionVersion);
+        }
+
+        private function checkPermissionTapped(permission: Permission): void {
+            log(permission + " check status: " + Permissions.shared.check(permission));
+        }
+
+        private function requestPermissionTapped(permission: Permission): void {
+            permission.request(function (status: AuthorisationStatus): void {
+                log(permission + " request status: " + status);
+            });
+        }
+
+        private function openSettings(): void {
+            Permissions.shared.openSettings();
+        }
+        ]]>
+    </fx:Script>
+
+    <f:layout>
+        <f:VerticalLayout />
+    </f:layout>
+
+    <f:ScrollContainer>
+        <f:layoutData>
+            <f:VerticalLayoutData percentHeight="100" percentWidth="100" />
+        </f:layoutData>
+        <f:layout><f:VerticalLayout horizontalAlign="justify" gap="10" /></f:layout>
+        <f:Button label="Is Supported" triggered="isSupportedTapped()" />
+        <f:Button label="Extensions Version" triggered="extensionVersion()" />
+        <f:Button label="Open Settings" triggered="openSettings()" />
+        <f:LayoutGroup>
+            <f:layout><f:HorizontalLayout gap="10" /></f:layout>
+            <f:Button label="Camera Status" triggered="checkPermissionTapped(Permission.camera)">
+                <f:layoutData><f:HorizontalLayoutData percentWidth="50"/></f:layoutData>
+            </f:Button>
+            <f:Button label="Request Camera" triggered="requestPermissionTapped(Permission.camera)">
+                <f:layoutData><f:HorizontalLayoutData percentWidth="50"/></f:layoutData>
+            </f:Button>
+        </f:LayoutGroup>
+        <f:LayoutGroup>
+            <f:layout><f:HorizontalLayout gap="10" /></f:layout>
+            <f:Button label="Location Status" triggered="checkPermissionTapped(Permission.location)">
+                <f:layoutData><f:HorizontalLayoutData percentWidth="50"/></f:layoutData>
+            </f:Button>
+            <f:Button label="Request Location" triggered="requestPermissionTapped(Permission.location)">
+                <f:layoutData><f:HorizontalLayoutData percentWidth="50"/></f:layoutData>
+            </f:Button>
+        </f:LayoutGroup>
+    </f:ScrollContainer>
+
+    <f:ScrollText id="outputText" height="100">
+        <f:layoutData>
+            <f:VerticalLayoutData percentWidth="100" />
+        </f:layoutData>
+    </f:ScrollText>
+
+</f:Application>

@@ -1,0 +1,12 @@
+<platform xmlns="http://ns.adobe.com/air/extension/24.0">
+    <description></description> 
+    <sdkVersion>8.0</sdkVersion>
+
+    <linkerOptions>
+        <option>-ios_version_min 8.0</option>
+    </linkerOptions>
+
+    <!--<packagedDependencies>-->
+        <!--<packagedDependency></packagedDependency>-->
+    <!--</packagedDependencies>-->
+</platform>

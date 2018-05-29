@@ -1,0 +1,328 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		50AE283220BC5324007C06AA /* ANXPermissionsFacade.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AE283120BC5324007C06AA /* ANXPermissionsFacade.m */; };
+		50AE283320BC5324007C06AA /* ANXPermissionsFacade.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 50AE283020BC5324007C06AA /* ANXPermissionsFacade.h */; };
+		50AE284320BC5634007C06AA /* ANXPermissionsCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AE284220BC5634007C06AA /* ANXPermissionsCamera.m */; };
+		50AE284620BC56F5007C06AA /* ANXPermissions.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AE284520BC56F5007C06AA /* ANXPermissions.m */; };
+		50AE284920BC66AB007C06AA /* ANXPermissionsConversionRoutines.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AE284820BC66AB007C06AA /* ANXPermissionsConversionRoutines.m */; };
+		50AE284C20BD2654007C06AA /* ANXPermissionsLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AE284B20BD2654007C06AA /* ANXPermissionsLocation.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		50AE282B20BC5324007C06AA /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				50AE283320BC5324007C06AA /* ANXPermissionsFacade.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		50AE282D20BC5324007C06AA /* libANXPermissions.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libANXPermissions.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		50AE283020BC5324007C06AA /* ANXPermissionsFacade.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANXPermissionsFacade.h; sourceTree = "<group>"; };
+		50AE283120BC5324007C06AA /* ANXPermissionsFacade.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANXPermissionsFacade.m; sourceTree = "<group>"; };
+		50AE283A20BC5436007C06AA /* FlashRuntimeExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlashRuntimeExtensions.h; sourceTree = "<group>"; };
+		50AE283B20BC5451007C06AA /* ANXBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANXBridge.h; sourceTree = "<group>"; };
+		50AE283C20BC5451007C06AA /* ANXBridgeCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANXBridgeCall.h; sourceTree = "<group>"; };
+		50AE284120BC5634007C06AA /* ANXPermissionsCamera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANXPermissionsCamera.h; sourceTree = "<group>"; };
+		50AE284220BC5634007C06AA /* ANXPermissionsCamera.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANXPermissionsCamera.m; sourceTree = "<group>"; };
+		50AE284420BC56F5007C06AA /* ANXPermissions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANXPermissions.h; sourceTree = "<group>"; };
+		50AE284520BC56F5007C06AA /* ANXPermissions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANXPermissions.m; sourceTree = "<group>"; };
+		50AE284720BC66AB007C06AA /* ANXPermissionsConversionRoutines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANXPermissionsConversionRoutines.h; sourceTree = "<group>"; };
+		50AE284820BC66AB007C06AA /* ANXPermissionsConversionRoutines.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANXPermissionsConversionRoutines.m; sourceTree = "<group>"; };
+		50AE284A20BD2654007C06AA /* ANXPermissionsLocation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANXPermissionsLocation.h; sourceTree = "<group>"; };
+		50AE284B20BD2654007C06AA /* ANXPermissionsLocation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANXPermissionsLocation.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		50AE282A20BC5324007C06AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		50AE282420BC5324007C06AA = {
+			isa = PBXGroup;
+			children = (
+				50AE282F20BC5324007C06AA /* Permissions */,
+				50AE282E20BC5324007C06AA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		50AE282E20BC5324007C06AA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				50AE282D20BC5324007C06AA /* libANXPermissions.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		50AE282F20BC5324007C06AA /* Permissions */ = {
+			isa = PBXGroup;
+			children = (
+				50AE283D20BC548C007C06AA /* Supporting Files */,
+				50AE284720BC66AB007C06AA /* ANXPermissionsConversionRoutines.h */,
+				50AE284820BC66AB007C06AA /* ANXPermissionsConversionRoutines.m */,
+				50AE283020BC5324007C06AA /* ANXPermissionsFacade.h */,
+				50AE283120BC5324007C06AA /* ANXPermissionsFacade.m */,
+				50AE284420BC56F5007C06AA /* ANXPermissions.h */,
+				50AE284520BC56F5007C06AA /* ANXPermissions.m */,
+				50AE284120BC5634007C06AA /* ANXPermissionsCamera.h */,
+				50AE284220BC5634007C06AA /* ANXPermissionsCamera.m */,
+				50AE284A20BD2654007C06AA /* ANXPermissionsLocation.h */,
+				50AE284B20BD2654007C06AA /* ANXPermissionsLocation.m */,
+			);
+			path = Permissions;
+			sourceTree = "<group>";
+		};
+		50AE283D20BC548C007C06AA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				50AE283A20BC5436007C06AA /* FlashRuntimeExtensions.h */,
+				50AE283B20BC5451007C06AA /* ANXBridge.h */,
+				50AE283C20BC5451007C06AA /* ANXBridgeCall.h */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		50AE282C20BC5324007C06AA /* ANXPermissions */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50AE283620BC5324007C06AA /* Build configuration list for PBXNativeTarget "ANXPermissions" */;
+			buildPhases = (
+				50AE282920BC5324007C06AA /* Sources */,
+				50AE282A20BC5324007C06AA /* Frameworks */,
+				50AE282B20BC5324007C06AA /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ANXPermissions;
+			productName = Permissions;
+			productReference = 50AE282D20BC5324007C06AA /* libANXPermissions.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		50AE282520BC5324007C06AA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = "Max Rozdobudko";
+				TargetAttributes = {
+					50AE282C20BC5324007C06AA = {
+						CreatedOnToolsVersion = 9.3;
+					};
+				};
+			};
+			buildConfigurationList = 50AE282820BC5324007C06AA /* Build configuration list for PBXProject "Permissions" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 50AE282420BC5324007C06AA;
+			productRefGroup = 50AE282E20BC5324007C06AA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				50AE282C20BC5324007C06AA /* ANXPermissions */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		50AE282920BC5324007C06AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50AE284C20BD2654007C06AA /* ANXPermissionsLocation.m in Sources */,
+				50AE284620BC56F5007C06AA /* ANXPermissions.m in Sources */,
+				50AE283220BC5324007C06AA /* ANXPermissionsFacade.m in Sources */,
+				50AE284320BC5634007C06AA /* ANXPermissionsCamera.m in Sources */,
+				50AE284920BC66AB007C06AA /* ANXPermissionsConversionRoutines.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		50AE283420BC5324007C06AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		50AE283520BC5324007C06AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		50AE283720BC5324007C06AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GL9F4DL9W9;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		50AE283820BC5324007C06AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GL9F4DL9W9;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		50AE282820BC5324007C06AA /* Build configuration list for PBXProject "Permissions" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50AE283420BC5324007C06AA /* Debug */,
+				50AE283520BC5324007C06AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		50AE283620BC5324007C06AA /* Build configuration list for PBXNativeTarget "ANXPermissions" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50AE283720BC5324007C06AA /* Debug */,
+				50AE283820BC5324007C06AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 50AE282520BC5324007C06AA /* Project object */;
+}
