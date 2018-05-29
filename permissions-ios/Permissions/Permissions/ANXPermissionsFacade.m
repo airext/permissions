@@ -58,6 +58,14 @@ FREObject ANXPermissionsRequest(FREContext context, void* functionData, uint32_t
     return [call toFREObject];
 }
 
+FREObject ANXPermissionsFeatureEnabled(FREContext context, void* functionData, uint32_t argc, FREObject argv[]) {
+    return [ANXPermissionsConversionRoutines convertBoolToFREObject:YES];
+}
+
+FREObject ANXPermissionsEnableFeature(FREContext context, void* functionData, uint32_t argc, FREObject argv[]) {
+    return NULL;
+}
+
 FREObject ANXPermissionsOpenSettings(FREContext context, void* functionData, uint32_t argc, FREObject argv[]) {
     NSURL* appSettingsURL = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
     if (appSettingsURL != nil) {
@@ -71,7 +79,7 @@ FREObject ANXPermissionsOpenSettings(FREContext context, void* functionData, uin
 void ANXPermissionsContextInitializer(void* extData, const uint8_t* ctxType, FREContext ctx, uint32_t* numFunctionsToSet, const FRENamedFunction** functionsToSet){
     NSLog(@"ANXPermissionsContextInitializer");
 
-    *numFunctionsToSet = 4;
+    *numFunctionsToSet = 6;
 
     FRENamedFunction* func = (FRENamedFunction*) malloc(sizeof(FRENamedFunction) * (*numFunctionsToSet));
 
@@ -89,9 +97,17 @@ void ANXPermissionsContextInitializer(void* extData, const uint8_t* ctxType, FRE
     func[2].functionData = NULL;
     func[2].function = &ANXPermissionsRequest;
 
-    func[3].name = (const uint8_t*) "openSettings";
+    func[3].name = (const uint8_t*) "enabled";
     func[3].functionData = NULL;
-    func[3].function = &ANXPermissionsOpenSettings;
+    func[3].function = &ANXPermissionsFeatureEnabled;
+
+    func[4].name = (const uint8_t*) "enable";
+    func[4].functionData = NULL;
+    func[4].function = &ANXPermissionsEnableFeature;
+
+    func[5].name = (const uint8_t*) "openSettings";
+    func[5].functionData = NULL;
+    func[5].function = &ANXPermissionsOpenSettings;
 
     // setup bridge
 

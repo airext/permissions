@@ -141,6 +141,14 @@ public class Permissions {
         });
     }
 
+    public function checkFeatureEnabled(permission: Permission): Boolean {
+        return context.call("enabled", permission.id) as Boolean;
+    }
+
+    public function enableFeatureIfPossible(permission: Permission): void {
+        context.call("enable", permission.id);
+    }
+
     public function openSettings(): void {
         context.call("openSettings");
     }

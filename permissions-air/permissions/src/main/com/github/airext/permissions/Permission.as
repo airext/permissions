@@ -46,6 +46,18 @@ public class Permission {
         }
     }
 
+    // isServiceEnabled
+
+    public function get isFeatureEnabled(): Boolean {
+        return Permissions.shared.checkFeatureEnabled(this);
+    }
+
+    // enableFeatureIfPossible
+
+    public function enableFeatureIfPossible(): void {
+        Permissions.shared.enableFeatureIfPossible(this);
+    }
+
     // status
 
     public function get status(): AuthorisationStatus {

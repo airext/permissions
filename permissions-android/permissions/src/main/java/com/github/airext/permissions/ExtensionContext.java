@@ -4,10 +4,7 @@ import com.adobe.fre.FREFunction;
 import com.github.airext.bridge.Bridge;
 import com.github.airext.bridge.exceptions.BridgeInstantiationException;
 import com.github.airext.bridge.exceptions.BridgeNotFoundException;
-import com.github.airext.permissions.functions.IsSupportedFunction;
-import com.github.airext.permissions.functions.OpenSettingsFunction;
-import com.github.airext.permissions.functions.RequestPermissionFunction;
-import com.github.airext.permissions.functions.CheckPermissionFunction;
+import com.github.airext.permissions.functions.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -20,6 +17,8 @@ public class ExtensionContext extends com.adobe.fre.FREContext {
         functions.put("isSupported", new IsSupportedFunction());
         functions.put("check", new CheckPermissionFunction());
         functions.put("request", new RequestPermissionFunction());
+        functions.put("enabled", new CheckPermissionFeatureEnabledFunction());
+        functions.put("enable", new EnablePermissionFeatureFunction());
         functions.put("openSettings", new OpenSettingsFunction());
 
         try {

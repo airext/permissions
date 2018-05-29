@@ -16,4 +16,7 @@
 +(FREObject) convertNSStringToFREObject:(NSString*) string;
 +(NSString*) convertFREObjectToNSString: (FREObject) string;
 
++(BOOL) convertFREObjectToBool: (FREObject) value;
++(FREObject) convertBoolToFREObject: (BOOL) value;
+
 @end

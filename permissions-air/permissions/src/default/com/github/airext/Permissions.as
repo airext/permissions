@@ -74,6 +74,15 @@ public class Permissions {
         trace("Permissions extension is not supported for " + Capabilities.os);
     }
 
+    public function checkFeatureEnabled(permission: Permission): Boolean {
+        trace("Permissions extension is not supported for " + Capabilities.os);
+        return false;
+    }
+
+    public function enableFeatureIfPossible(permission: Permission): void {
+        trace("Permissions extension is not supported for " + Capabilities.os);
+    }
+
     public function openSettings(): void {
         trace("Permissions extension is not supported for " + Capabilities.os);
     }

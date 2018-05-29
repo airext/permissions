@@ -1,11 +1,14 @@
 package com.github.airext.permissions;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.LocationManager;
 import android.os.Process;
+import android.provider.Settings;
 import android.util.Log;
 import com.github.airext.permissions.activities.PermissionsRequestActivity;
 
@@ -115,6 +118,27 @@ public class PermissionManager {
         if (_listener != null) {
             _listener.onPermissionsCheck(grantedPermissions, deniedPermissions);
             _listener = null;
+        }
+    }
+
+    public static boolean checkPermissionFeatureEnabled(Activity activity, String permission) {
+        switch (permission) {
+            case Manifest.permission.ACCESS_FINE_LOCATION:
+            case Manifest.permission.ACCESS_COARSE_LOCATION:
+                LocationManager lm = (LocationManager) activity.getSystemService(Context.LOCATION_SERVICE);
+                return lm != null && (lm.isProviderEnabled(LocationManager.GPS_PROVIDER) || lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER));
+            default:
+                return true;
+        }
+    }
+
+    public static void enableFeatureIfPossible(Activity activity, String permission) {
+        switch (permission) {
+            case Manifest.permission.ACCESS_FINE_LOCATION:
+            case Manifest.permission.ACCESS_COARSE_LOCATION:
+                Intent locationSettingsIntent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                activity.startActivity(locationSettingsIntent);
+                break;
         }
     }
 

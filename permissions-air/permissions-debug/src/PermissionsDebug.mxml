@@ -20,7 +20,7 @@
             log("isSupported:" + Permissions.isSupported);
         }
 
-        private function extensionVersion(): void {
+        private function extensionVersionTapped(): void {
             log("extensionVersion:" + Permissions.extensionVersion);
         }
 
@@ -34,8 +34,17 @@
             });
         }
 
-        private function openSettings(): void {
+        private function openSettingsTapped(): void {
             Permissions.shared.openSettings();
+        }
+
+        private function checkPermissionFeatureEnabledTapped(permission: Permission): void {
+            log(permission + " feature enabled: " + permission.isFeatureEnabled);
+        }
+
+        private function enablePermissionFeatureTapped(permission: Permission): void {
+            log(permission + " enable feature");
+            permission.enableFeatureIfPossible();
         }
         ]]>
     </fx:Script>
@@ -50,23 +59,37 @@
         </f:layoutData>
         <f:layout><f:VerticalLayout horizontalAlign="justify" gap="10" /></f:layout>
         <f:Button label="Is Supported" triggered="isSupportedTapped()" />
-        <f:Button label="Extensions Version" triggered="extensionVersion()" />
-        <f:Button label="Open Settings" triggered="openSettings()" />
+        <f:Button label="Extensions Version" triggered="extensionVersionTapped()" />
+        <f:Button label="Open Settings" triggered="openSettingsTapped()" />
+        <f:Label text="Camera:" />
         <f:LayoutGroup>
-            <f:layout><f:HorizontalLayout gap="10" /></f:layout>
-            <f:Button label="Camera Status" triggered="checkPermissionTapped(Permission.camera)">
+            <f:layout><f:HorizontalLayout gap="4" /></f:layout>
+            <f:Button label="Enabled" triggered="checkPermissionFeatureEnabledTapped(Permission.camera)">
                 <f:layoutData><f:HorizontalLayoutData percentWidth="50"/></f:layoutData>
             </f:Button>
-            <f:Button label="Request Camera" triggered="requestPermissionTapped(Permission.camera)">
+            <f:Button label="Enable" triggered="enablePermissionFeatureTapped(Permission.camera)">
+                <f:layoutData><f:HorizontalLayoutData percentWidth="50"/></f:layoutData>
+            </f:Button>
+            <f:Button label="Status" triggered="checkPermissionTapped(Permission.camera)">
+                <f:layoutData><f:HorizontalLayoutData percentWidth="50"/></f:layoutData>
+            </f:Button>
+            <f:Button label="Request" triggered="requestPermissionTapped(Permission.camera)">
                 <f:layoutData><f:HorizontalLayoutData percentWidth="50"/></f:layoutData>
             </f:Button>
         </f:LayoutGroup>
+        <f:Label text="Location:" />
         <f:LayoutGroup>
-            <f:layout><f:HorizontalLayout gap="10" /></f:layout>
-            <f:Button label="Location Status" triggered="checkPermissionTapped(Permission.location)">
+            <f:layout><f:HorizontalLayout gap="4" /></f:layout>
+            <f:Button label="Enabled" triggered="checkPermissionFeatureEnabledTapped(Permission.location)">
                 <f:layoutData><f:HorizontalLayoutData percentWidth="50"/></f:layoutData>
             </f:Button>
-            <f:Button label="Request Location" triggered="requestPermissionTapped(Permission.location)">
+            <f:Button label="Enable" triggered="enablePermissionFeatureTapped(Permission.location)">
+                <f:layoutData><f:HorizontalLayoutData percentWidth="50"/></f:layoutData>
+            </f:Button>
+            <f:Button label="Status" triggered="checkPermissionTapped(Permission.location)">
+                <f:layoutData><f:HorizontalLayoutData percentWidth="50"/></f:layoutData>
+            </f:Button>
+            <f:Button label="Request" triggered="requestPermissionTapped(Permission.location)">
                 <f:layoutData><f:HorizontalLayoutData percentWidth="50"/></f:layoutData>
             </f:Button>
         </f:LayoutGroup>
