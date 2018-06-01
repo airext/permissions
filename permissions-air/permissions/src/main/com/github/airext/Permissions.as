@@ -149,7 +149,11 @@ public class Permissions {
         context.call("enable", permission.id);
     }
 
-    public function openSettings(): void {
+    public function openFeatureSettings(permission: Permission): void {
+        context.call("openSettings", permission.id);
+    }
+
+    public function openApplicationSettings(): void {
         context.call("openSettings");
     }
 }

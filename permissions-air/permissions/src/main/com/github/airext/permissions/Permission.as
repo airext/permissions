@@ -52,12 +52,6 @@ public class Permission {
         return Permissions.shared.checkFeatureEnabled(this);
     }
 
-    // enableFeatureIfPossible
-
-    public function enableFeatureIfPossible(): void {
-        Permissions.shared.enableFeatureIfPossible(this);
-    }
-
     // status
 
     public function get status(): AuthorisationStatus {
@@ -78,8 +72,16 @@ public class Permission {
 
     // Methods
 
+    public function enableFeatureIfPossible(): void {
+        Permissions.shared.enableFeatureIfPossible(this);
+    }
+
     public function request(handler: Function): void {
         Permissions.shared.request(this, handler);
+    }
+
+    public function settings(): void {
+        Permissions.shared.openFeatureSettings(this);
     }
 
     // Debug description

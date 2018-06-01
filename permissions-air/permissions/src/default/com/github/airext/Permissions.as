@@ -83,7 +83,11 @@ public class Permissions {
         trace("Permissions extension is not supported for " + Capabilities.os);
     }
 
-    public function openSettings(): void {
+    public function openFeatureSettings(permission: Permission): void {
+        trace("Permissions extension is not supported for " + Capabilities.os);
+    }
+
+    public function openApplicationSettings(): void {
         trace("Permissions extension is not supported for " + Capabilities.os);
     }
 }
