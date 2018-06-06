@@ -5,9 +5,11 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.LocationManager;
 import android.os.Process;
+import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.util.Log;
 import com.github.airext.permissions.activities.PermissionsRequestActivity;
@@ -28,11 +30,23 @@ public class PermissionManager {
 
     public static String getPermissionStatus(Context context, String permission) {
         Log.d(TAG, "getPermissionStatus");
-        switch (context.checkSelfPermission(permission)) {
-            case PackageManager.PERMISSION_GRANTED: return "granted";
-            case PackageManager.PERMISSION_DENIED:  return "denied";
-            default: return "unknown";
+
+        int result = context.checkSelfPermission(permission);
+        if (result == PackageManager.PERMISSION_GRANTED) {
+            return "granted";
         }
+
+        SharedPreferences preferences = context.getSharedPreferences("com.github.airext.permissions.preferences", Context.MODE_PRIVATE);
+
+        if (preferences.getBoolean(permission, false)) {
+            return "denied";
+        }
+
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean(permission, true);
+        editor.apply();
+
+        return "unknown";
     }
 
     // Check permission

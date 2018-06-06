@@ -2,7 +2,7 @@
 <module type="Flex" version="4">
   <component name="FlexBuildConfigurationManager" active="permissions-debug">
     <configurations>
-      <configuration name="permissions-debug" target-platform="Mobile" main-class="PermissionsDebug" output-file="PermissionsDebug.swf" output-folder="$MODULE_DIR$/../out/production/permissions-debug">
+      <configuration name="permissions-debug" target-platform="Mobile" main-class="PermissionsDebug" output-file="PermissionsDebug.swf" output-folder="$MODULE_DIR$/bin">
         <dependencies target-player="29.0">
           <entries>
             <entry library-id="b02174fd-0d75-42ae-ba22-d42bf824c710">

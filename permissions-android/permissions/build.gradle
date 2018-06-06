@@ -24,7 +24,6 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation files('libs/FlashRuntimeExtensions.jar')
-    implementation files('libs/FlashRuntimeExtensions.jar')
 
     implementation 'com.android.support:appcompat-v7:27.1.1'
     testImplementation 'junit:junit:4.12'
