@@ -7,7 +7,7 @@ import com.github.airext.permissions.ExtensionContext;
 
 public class Permissions implements FREExtension {
 
-    private final static String TAG = "ANXPermissions";
+    public final static String TAG = "ANXPermissions";
 
     //--------------------------------------------------------------------------
     //

@@ -4,6 +4,7 @@ import android.app.Activity;
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREObject;
 import com.github.airext.permissions.PermissionManager;
+import com.github.airext.permissions.utils.ConversionRoutines;
 
 public class EnablePermissionFeatureFunction implements com.adobe.fre.FREFunction {
 
@@ -16,8 +17,8 @@ public class EnablePermissionFeatureFunction implements com.adobe.fre.FREFunctio
         Activity activity = context.getActivity();
 
         try {
-            String permission = args[0].getAsString();
-            PermissionManager.enableFeatureIfPossible(activity, permission);
+            String[] permissions = ConversionRoutines.convertFREArrayToStrings(args[0]);
+            PermissionManager.enableFeatureIfPossible(activity, permissions);
         } catch (Exception e) {
             e.printStackTrace();
         }

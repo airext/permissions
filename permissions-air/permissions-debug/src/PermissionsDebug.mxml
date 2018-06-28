@@ -35,6 +35,11 @@
         }
 
         private function openSettingsTapped(): void {
+            trace(Permissions);
+            trace(Permissions.shared);
+            trace(Permission);
+            trace(Permission.camera);
+            trace(Permission.location);
             Permissions.shared.openApplicationSettings();
         }
 
@@ -100,6 +105,25 @@
                 <f:layoutData><f:HorizontalLayoutData percentWidth="50"/></f:layoutData>
             </f:Button>
             <f:Button label="Settings" triggered="settingsPermissionTapped(Permission.location)">
+                <f:layoutData><f:HorizontalLayoutData percentWidth="50"/></f:layoutData>
+            </f:Button>
+        </f:LayoutGroup>
+        <f:Label text="Fine Location:" />
+        <f:LayoutGroup>
+            <f:layout><f:HorizontalLayout gap="4" /></f:layout>
+            <f:Button label="Enabled" triggered="checkPermissionFeatureEnabledTapped(Permission.fineLocation)">
+                <f:layoutData><f:HorizontalLayoutData percentWidth="50"/></f:layoutData>
+            </f:Button>
+            <f:Button label="Enable" triggered="enablePermissionFeatureTapped(Permission.fineLocation)">
+                <f:layoutData><f:HorizontalLayoutData percentWidth="50"/></f:layoutData>
+            </f:Button>
+            <f:Button label="Status" triggered="checkPermissionTapped(Permission.fineLocation)">
+                <f:layoutData><f:HorizontalLayoutData percentWidth="50"/></f:layoutData>
+            </f:Button>
+            <f:Button label="Request" triggered="requestPermissionTapped(Permission.fineLocation)">
+                <f:layoutData><f:HorizontalLayoutData percentWidth="50"/></f:layoutData>
+            </f:Button>
+            <f:Button label="Settings" triggered="settingsPermissionTapped(Permission.fineLocation)">
                 <f:layoutData><f:HorizontalLayoutData percentWidth="50"/></f:layoutData>
             </f:Button>
         </f:LayoutGroup>

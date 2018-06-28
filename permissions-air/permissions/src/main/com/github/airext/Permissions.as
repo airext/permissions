@@ -121,10 +121,11 @@ public class Permissions {
     //--------------------------------------------------------------------------
 
     public function check(permission: Permission): AuthorisationStatus {
+        trace("Permissions.check:", permission.rawValue);
         if (!permission.isSupported) {
             return AuthorisationStatus.unknown;
         }
-        return AuthorisationStatus.fromRawValue(context.call("check", permission.id) as String);
+        return AuthorisationStatus.fromRawValue(context.call("check", permission.rawValue) as String);
     }
 
     public function request(permission: Permission, handler: Function): void {
@@ -136,21 +137,22 @@ public class Permissions {
             handler(AuthorisationStatus.granted);
             return;
         }
-        bridge(context).call("request", permission.id).callback(function (error: Error, value: String): void {
+        bridge(context).call("request", permission.rawValue).callback(function (error: Error, value: String): void {
             handler(AuthorisationStatus.fromRawValue(value));
         });
     }
 
     public function checkFeatureEnabled(permission: Permission): Boolean {
-        return context.call("enabled", permission.id) as Boolean;
+        trace("Permissions.checkFeatureEnabled:", permission.rawValue);
+        return context.call("enabled", permission.rawValue) as Boolean;
     }
 
     public function enableFeatureIfPossible(permission: Permission): void {
-        context.call("enable", permission.id);
+        context.call("enable", permission.rawValue);
     }
 
     public function openFeatureSettings(permission: Permission): void {
-        context.call("openSettings", permission.id);
+        context.call("openSettings", permission.rawValue);
     }
 
     public function openApplicationSettings(): void {

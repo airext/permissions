@@ -7,6 +7,7 @@ import com.adobe.fre.FREObject;
 import com.github.airext.bridge.Bridge;
 import com.github.airext.bridge.Call;
 import com.github.airext.permissions.PermissionManager;
+import com.github.airext.permissions.utils.ConversionRoutines;
 
 public class RequestPermissionFunction implements FREFunction {
 
@@ -21,8 +22,8 @@ public class RequestPermissionFunction implements FREFunction {
         Activity activity = context.getActivity();
 
         try {
-            String permission = args[0].getAsString();
-            PermissionManager.requestPermissions(activity, new String[]{permission}, new PermissionManager.Listener() {
+            String[] permissions = ConversionRoutines.convertFREArrayToStrings(args[0]);
+            PermissionManager.requestPermissions(activity, permissions, new PermissionManager.Listener() {
                 @Override
                 public void onPermissionsCheck(String[] grantedPermissions, String[] deniedPermissions) {
                     if (grantedPermissions.length > 0) {

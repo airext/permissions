@@ -5,6 +5,7 @@ import com.adobe.fre.FREContext;
 import com.adobe.fre.FREFunction;
 import com.adobe.fre.FREObject;
 import com.github.airext.permissions.PermissionManager;
+import com.github.airext.permissions.utils.ConversionRoutines;
 
 public class CheckPermissionFeatureEnabledFunction implements FREFunction {
 
@@ -17,8 +18,8 @@ public class CheckPermissionFeatureEnabledFunction implements FREFunction {
         Activity activity = context.getActivity();
 
         try {
-            String permission = args[0].getAsString();
-            return FREObject.newObject(PermissionManager.checkPermissionFeatureEnabled(activity, permission));
+            String[] permissions = ConversionRoutines.convertFREArrayToStrings(args[0]);
+            return FREObject.newObject(PermissionManager.checkPermissionsFeatureEnabled(activity, permissions));
         } catch (Exception e) {
             e.printStackTrace();
         }

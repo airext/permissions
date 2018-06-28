@@ -8,8 +8,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.LocationManager;
-import android.os.Process;
-import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.util.Log;
 import com.github.airext.permissions.activities.PermissionsRequestActivity;
@@ -28,40 +26,64 @@ public class PermissionManager {
 
     // Authorization status
 
-    public static String getPermissionStatus(Context context, String permission) {
-        Log.d(TAG, "getPermissionStatus");
+    public static String getPermissionsStatus(Context context, String[] permissions) {
+        Log.d(TAG, "getPermissionsStatus");
 
-        int result = context.checkSelfPermission(permission);
-        if (result == PackageManager.PERMISSION_GRANTED) {
+        int grantedPermissions = 0;
+
+        for (int i = 0; i < permissions.length; i++) {
+            String permission = permissions[i];
+            int result = context.checkSelfPermission(permission);
+            if (result == PackageManager.PERMISSION_GRANTED) {
+                grantedPermissions++;
+            }
+        }
+
+        if (grantedPermissions == permissions.length) {
             return "granted";
         }
 
         SharedPreferences preferences = context.getSharedPreferences("com.github.airext.permissions.preferences", Context.MODE_PRIVATE);
 
-        if (preferences.getBoolean(permission, false)) {
-            return "denied";
+        int deniedPermissions = 0;
+
+        for (int i = 0; i < permissions.length; i++) {
+            String permission = permissions[i];
+            if (preferences.getBoolean(permission, false)) {
+                deniedPermissions++;
+            } else {
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putBoolean(permission, true);
+                editor.apply();
+            }
         }
 
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putBoolean(permission, true);
-        editor.apply();
+        if (deniedPermissions == permissions.length) {
+            return "denied";
+        }
 
         return "unknown";
     }
 
+    public static String getPermissionStatus(Context context, String permission) {
+        Log.d(TAG, "getPermissionStatus");
+
+        return getPermissionsStatus(context, new String[]{permission});
+    }
+
     // Check permission
 
-    private static Boolean checkIfPermissionsGranted(Context context, String permission) {
-        Log.d(TAG, "checkIfPermissionsGranted");
+    private static Boolean checkIfPermissionGranted(Context context, String permission) {
+        Log.d(TAG, "checkIfPermissionGranted");
         int status = context.checkSelfPermission(permission);
         Log.d(TAG, "Permission " + permission + " status: " + status);
         return status == PackageManager.PERMISSION_GRANTED;
     }
 
-    private static Boolean checkIfPermissionsGranted(Context context, String[] permissions) {
-        Log.d(TAG, "checkIfPermissionsGranted");
+    private static Boolean checkIfPermissionGranted(Context context, String[] permissions) {
+        Log.d(TAG, "checkIfPermissionGranted");
         for (String permission: permissions) {
-            if (!checkIfPermissionsGranted(context, permission)) {
+            if (!checkIfPermissionGranted(context, permission)) {
                 return false;
             }
         }
@@ -75,7 +97,7 @@ public class PermissionManager {
     public static void requestPermissions(Context context, String[] permissions, Listener listener) {
         Log.d(TAG, "requestPermissions");
 
-        if (checkIfPermissionsGranted(context, permissions)) {
+        if (checkIfPermissionGranted(context, permissions)) {
             Log.d(TAG, "All permissions granted");
             if (listener != null) {
                 listener.onPermissionsCheck(permissions, new String[]{});
@@ -135,6 +157,14 @@ public class PermissionManager {
         }
     }
 
+    public static boolean checkPermissionsFeatureEnabled(Activity activity, String[] permissions) {
+        Boolean result = true;
+        for (String permission : permissions) {
+            result = result && checkPermissionFeatureEnabled(activity, permission);
+        }
+        return result;
+    }
+
     public static boolean checkPermissionFeatureEnabled(Activity activity, String permission) {
         switch (permission) {
             case Manifest.permission.ACCESS_FINE_LOCATION:
@@ -146,6 +176,15 @@ public class PermissionManager {
         }
     }
 
+    public static void enableFeatureIfPossible(Activity activity, String[] permissions) {
+        for (String permission : permissions) {
+            if (canEnablePermissionFeature(permission)) {
+                enableFeatureIfPossible(activity, permission);
+                return;
+            }
+        }
+    }
+
     public static void enableFeatureIfPossible(Activity activity, String permission) {
         switch (permission) {
             case Manifest.permission.ACCESS_FINE_LOCATION:
@@ -153,6 +192,16 @@ public class PermissionManager {
                 Intent locationSettingsIntent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
                 activity.startActivity(locationSettingsIntent);
                 break;
+        }
+    }
+
+    protected static boolean canEnablePermissionFeature(String permission) {
+        switch (permission) {
+            case Manifest.permission.ACCESS_FINE_LOCATION:
+            case Manifest.permission.ACCESS_COARSE_LOCATION:
+                return true;
+            default:
+                return false;
         }
     }
 

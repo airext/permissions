@@ -2,7 +2,6 @@
  * Created by max.rozdobudko@gmail.com on 5/26/18.
  */
 package com.github.airext.permissions {
-import com.github.airext.permissions.*;
 import com.github.airext.Permissions;
 
 import flash.system.Capabilities;
@@ -11,28 +10,33 @@ public class Permission {
 
     // Predefined permissions
 
-    public static const camera: Permission   = new Permission("camera", "android.permission.CAMERA");
-    public static const location: Permission = new Permission("location", "android.permission.ACCESS_COARSE_LOCATION");
+    public static const camera: Permission   = new Permission("camera", new <String>["android.permission.CAMERA"]);
+    public static const location: Permission = new Permission("location", new <String>["android.permission.ACCESS_COARSE_LOCATION"]);
+
+    // Android permissions
+
+    public static const fineLocation: Permission = new Permission(null, new <String>["android.permission.ACCESS_COARSE_LOCATION", "android.permission.ACCESS_FINE_LOCATION"]);
 
     // Constructor
 
-    public function Permission(name: String, androidId: String) {
+    public function Permission(id: String, androidPermissions: Vector.<String>) {
         super();
-        _name = name;
-        _androidId = androidId;
+        _id = id;
+        _androidPermissions = androidPermissions;
     }
 
     // Variables
 
-    private var _name: String;
-    private var _androidId: String;
+    protected var _id: String;
 
-    // id
+    protected var _androidPermissions: Vector.<String>;
 
-    public function get id(): String {
+    // rawValue
+
+    public function get rawValue(): Object {
         switch (Capabilities.version.substr(0, 3)) {
-            case "IOS": return _name;
-            case "AND": return _androidId;
+            case "IOS": return _id;
+            case "AND": return _androidPermissions;
             default: return null;
         }
     }
@@ -40,7 +44,11 @@ public class Permission {
     // isSupported
 
     public function get isSupported(): Boolean {
-        return false;
+        switch (Capabilities.version.substr(0, 3)) {
+            case "IOS": return Boolean(_id);
+            case "AND": return _androidPermissions && _androidPermissions.length > 0;
+            default: return false;
+        }
     }
 
     // isServiceEnabled
@@ -84,7 +92,7 @@ public class Permission {
     // Debug description
 
     public function toString(): String {
-        return "[Permission(id=\""+id+"\")]";
+        return "[Permission(rawValue=\""+rawValue+"\")]";
     }
 }
 }
