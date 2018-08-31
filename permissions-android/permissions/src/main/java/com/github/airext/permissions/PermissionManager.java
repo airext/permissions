@@ -95,7 +95,7 @@ public class PermissionManager {
     private static Listener _listener;
 
     public static void requestPermissions(Context context, String[] permissions, Listener listener) {
-        Log.d(TAG, "requestPermissions");
+        Log.d(TAG, "requestPermissions" + permissions);
 
         if (checkIfPermissionGranted(context, permissions)) {
             Log.d(TAG, "All permissions granted");

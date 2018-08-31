@@ -17,10 +17,13 @@ public class OpenSettingsFunction implements FREFunction {
 
         String permission = null;
 
-        try {
-            permission = args.length > 0 ? args[0].getAsString() : null;
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (args.length > 0) {
+            try {
+                FREArray permissions = (FREArray) args[0];
+                permission = permissions.getObjectAt(0).getAsString();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
         Log.d("OpenSettingsFunction", "call");

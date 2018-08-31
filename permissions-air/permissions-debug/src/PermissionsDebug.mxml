@@ -10,6 +10,8 @@
         import com.github.airext.permissions.AuthorisationStatus;
         import com.github.airext.permissions.Permission;
 
+        private var storagePermission: Permission = new Permission(null, new <String>["android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE"]);
+
         private function log(...args): void {
             outputText.text += args + "\n";
             outputText.verticalScrollPosition = outputText.maxVerticalScrollPosition;
@@ -124,6 +126,25 @@
                 <f:layoutData><f:HorizontalLayoutData percentWidth="50"/></f:layoutData>
             </f:Button>
             <f:Button label="Settings" triggered="settingsPermissionTapped(Permission.fineLocation)">
+                <f:layoutData><f:HorizontalLayoutData percentWidth="50"/></f:layoutData>
+            </f:Button>
+        </f:LayoutGroup>
+        <f:Label text="Fine Storage:" />
+        <f:LayoutGroup>
+            <f:layout><f:HorizontalLayout gap="4" /></f:layout>
+            <f:Button label="Enabled" triggered="checkPermissionFeatureEnabledTapped(storagePermission)">
+                <f:layoutData><f:HorizontalLayoutData percentWidth="50"/></f:layoutData>
+            </f:Button>
+            <f:Button label="Enable" triggered="enablePermissionFeatureTapped(storagePermission)">
+                <f:layoutData><f:HorizontalLayoutData percentWidth="50"/></f:layoutData>
+            </f:Button>
+            <f:Button label="Status" triggered="checkPermissionTapped(storagePermission)">
+                <f:layoutData><f:HorizontalLayoutData percentWidth="50"/></f:layoutData>
+            </f:Button>
+            <f:Button label="Request" triggered="requestPermissionTapped(storagePermission)">
+                <f:layoutData><f:HorizontalLayoutData percentWidth="50"/></f:layoutData>
+            </f:Button>
+            <f:Button label="Settings" triggered="settingsPermissionTapped(storagePermission)">
                 <f:layoutData><f:HorizontalLayoutData percentWidth="50"/></f:layoutData>
             </f:Button>
         </f:LayoutGroup>
