@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<application xmlns="http://ns.adobe.com/air/application/29.0">
+<application xmlns="http://ns.adobe.com/air/application/32.0">
 
 <!-- Adobe AIR Application Descriptor File Template.
      Specifies parameters for identifying, installing, and launching AIR applications.
@@ -117,7 +117,7 @@
     <!--<supportedProfiles>desktop extendedDesktop mobileDevice extendedMobileDevice</supportedProfiles>-->
 
     <!-- Languages supported by application. Only these languages can be specified -->
-    <!--<supportedLanguages>en da de cs es fr it iw ja ko nb nl pl pt ru sv tr zh</supportedLanguages>-->
+    <supportedLanguages>en</supportedLanguages>
 
     <!-- The subpath of the standard default installation location to use. Optional. -->
     <!--<installFolder></installFolder>-->
