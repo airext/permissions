@@ -1,6 +1,6 @@
 <extension xmlns="http://ns.adobe.com/air/extension/24.0">
   <id>com.github.airext.Permissions</id>
-  <versionNumber>0.5.3</versionNumber>
+  <versionNumber>0.6.0</versionNumber>
   <platforms>
     <platform name="iPhone-ARM">
       <applicationDeployment>
@@ -14,6 +14,13 @@
         <nativeLibrary>libANXPermissionsSimulator.a</nativeLibrary>
         <initializer>ANXPermissionsInitializer</initializer>
         <finalizer>ANXPermissionsFinalizer</finalizer>
+      </applicationDeployment>
+    </platform>
+    <platform name="Android-ARM64">
+      <applicationDeployment>
+        <nativeLibrary>libANXPermissions.jar</nativeLibrary>
+        <initializer>com.github.airext.Permissions</initializer>
+        <finalizer>com.github.airext.Permissions</finalizer>
       </applicationDeployment>
     </platform>
     <platform name="Android-ARM">
