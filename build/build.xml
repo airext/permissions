@@ -55,6 +55,7 @@
         <exec executable="xcodebuild" failonerror="true" dir="${ios.project.dir}">
             <arg line='-project ${product.name}.xcodeproj'/>
             <arg line='-sdk iphonesimulator' />
+            <arg line="-arch x86_64 -arch i386" />
             <arg line="-target ANX${product.name}"/>
             <arg line='-configuration Debug'/>
             <arg line='SYMROOT=$(PWD)/../build/temp/ios/build'/>
