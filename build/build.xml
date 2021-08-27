@@ -85,9 +85,6 @@
 		<!-- Copy Android build artifacts to temporary build folder -->
 		<copy file="${android.project.dir}/build/libs/${product.name}.jar" tofile="temp/android/libANX${product.name}.jar" overwrite="true"/>
 
-        <!-- Copy manifest to include it into ANE file -->
-        <copy file="${android.project.dir}/src/main/AndroidManifest.xml" todir="temp/android" overwrite="true"/>
-
         <!-- Copy Native libraries -->
         <copy todir="temp/android/libs" overwrite="true">
             <fileset dir="${android.project.dir}/libs" includes="**/**.so" />
@@ -210,7 +207,6 @@
             <arg line="${keystore.file}"/>
             <arg line="-storepass"/>
             <arg line="${keystore.password}"/>
-            <arg line="-tsa http://timestamp.entrust.net/TSS/JavaHttpTS"/>
             <arg line="-target"/>
             <arg line="ane"/>
             <arg line="${project.name}.ane"/>

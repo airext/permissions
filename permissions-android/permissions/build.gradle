@@ -36,10 +36,8 @@ task clearJar(type: Delete) {
 }
 
 task jar(type: Jar) {
+    exclude 'AndroidManifest.xml'
     from zipTree('build/intermediates/packaged-classes/release/classes.jar') // add original content
-    from(file("src/main/AndroidManifest.xml")) {   // add new content
-//        into "META-INF"
-    }
 }
 
 jar.dependsOn(clearJar, build)
